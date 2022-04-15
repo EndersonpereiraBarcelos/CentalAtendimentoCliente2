@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tb_atendimento2 {
+  id_atendimento     Int      @id @default(autoincrement())
+  cpf                String   @db.VarChar(100)
+  numero_atendimento String   @db.VarChar(15)
+  inicio_atendimento DateTime @db.Timestamp(0)
+  fim_atendimento    DateTime @db.DateTime(0)
+}
+
+model tb_atendimento3 {
+  id_atendimento     Int      @id @default(autoincrement())
+  cpf                String   @db.VarChar(100)
+  numero_atendimento String   @db.VarChar(100)
+  inicio_atendimento DateTime @default(now()) @db.Timestamp(0)
+  fim_atendimento    DateTime @db.DateTime(0)
+  sufixo             String   @db.VarChar(100)
+}
+
+model tb_atendimento4 {
+  id_atendimento     Int      @id @default(autoincrement())
+  cpf                String   @db.VarChar(100)
+  numero_atendimento String   @db.VarChar(100)
+  inicio_atendimento DateTime @default(now()) @db.Timestamp(0)
+  fim_atendimento    DateTime @default(now()) @db.Timestamp(0)
+  sufixo             String   @db.VarChar(100)
+}
+
+model tb_atendimento5 {
+  id_atendimento     Int      @id @default(autoincrement())
+  cpf                String   @db.VarChar(100)
+  numero_atendimento String   @db.VarChar(100)
+  inicio_atendimento DateTime @default(now()) @db.Timestamp(0)
+  fim_atendimento    DateTime @default(now()) @db.Timestamp(0)
+}
+
+model tb_atendimento6 {
+  id_atendimento     Int      @id @default(autoincrement())
+  cpf                String   @db.VarChar(15)
+  numero_atendimento String   @db.VarChar(100)
+  observacoes        String?  @db.VarChar(500)
+  inicio_atendimento DateTime @default(now()) @db.Timestamp(0)
+  fim_atendimento    DateTime @default(now()) @db.Timestamp(0)
+}
+
+model tb_atendimentos {
+  id_atendimento     Int      @id @default(autoincrement())
+  cpf                String   @db.VarChar(100)
+  numero_atendimento String   @db.VarChar(100)
+  inicio_atendimento DateTime @db.DateTime(0)
+  fim_atendimento    DateTime @db.DateTime(0)
+  sufixo             String   @db.VarChar(100)
+}
+
+model tb_historico {
+  id_historico  Int    @id @default(autoincrement())
+  cpf           String @db.VarChar(45)
+  atendimentos  String @db.VarChar(200)
+  sufixo        String @db.VarChar(100)
+  justificativa String @db.VarChar(200)
+}
+
+model tb_historico2 {
+  id_historico  Int    @id @default(autoincrement())
+  cpf           String @db.VarChar(30)
+  atendimentos  String @db.VarChar(100)
+  justificativa String @db.VarChar(500)
+}
